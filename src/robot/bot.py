@@ -1,5 +1,11 @@
+import argparse
 import asyncio
 from asyncio import sleep
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--start', type=int, default=0, help='Start number')
+
+args = parser.parse_args()
 
 
 async def robot(start: int = 0):
@@ -9,10 +15,4 @@ async def robot(start: int = 0):
         await sleep(1)
 
 
-async def main():
-    start = input()
-    assert start.replace('-', '', 1).isdigit(), "The starting number must be an integer!"
-    start = int(start)
-    await robot(start)
-
-asyncio.run(main())
+asyncio.run(robot(args.start))

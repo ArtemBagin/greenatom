@@ -2,4 +2,4 @@ from pydantic import BaseModel
 
 
 class StartScheme(BaseModel):
-    start_number: int
+    start_number: int = 0
