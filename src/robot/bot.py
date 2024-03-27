@@ -1,15 +1,18 @@
-import time
+import asyncio
+from asyncio import sleep
 
 
-def robot(start: int = 0):
+async def robot(start: int = 0):
     while True:
         print(start)
         start += 1
-        time.sleep(1)
+        await sleep(1)
 
 
-def main():
+async def main():
     start = input()
     assert start.replace('-', '', 1).isdigit(), "The starting number must be an integer!"
     start = int(start)
-    robot(start)
+    await robot(start)
+
+asyncio.run(main())
