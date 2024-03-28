@@ -4,7 +4,9 @@ from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_scoped_session, async_sessionmaker
 from sqlalchemy.orm import declared_attr, as_declarative
 
-engine = create_async_engine("sqlite+aiosqlite:///database.db", echo=True)
+from config import settings
+
+engine = create_async_engine(f"sqlite+aiosqlite:///{settings.database}", echo=True)
 async_session = async_sessionmaker(bind=engine, expire_on_commit=False)
 
 

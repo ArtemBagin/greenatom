@@ -10,12 +10,12 @@ router = APIRouter(
 
 
 @router.post('')
-def start_robot(data: LaunchCreate):
+async def start_robot(data: LaunchCreate):
     # todo: вызов функции из services
     ...
 
 
 @router.delete('')
-def start_robot(data: LaunchCreate):
+async def start_robot(data: LaunchCreate):
     # todo: вызов функции из services
     ...

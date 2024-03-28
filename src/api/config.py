@@ -5,8 +5,8 @@ from pathlib import Path
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=Path("../../.env"), env_file_encoding='utf-8')
 
-    robot_file_name = 'bot.py'
-    robot_path = '../robot/bot.py'
+    robot_file_name: str = 'bot.py'
+    robot_path: str = '../robot/bot.py'
     database: str
 
 
