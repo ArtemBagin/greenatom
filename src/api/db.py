@@ -6,7 +6,7 @@ from sqlalchemy.orm import declared_attr, as_declarative
 
 from config import settings
 
-engine = create_async_engine(f"sqlite+aiosqlite:///{settings.database}", echo=True)
+engine = create_async_engine(f"sqlite+aiosqlite:///{settings.database}")
 async_session = async_sessionmaker(bind=engine, expire_on_commit=False)
 
 

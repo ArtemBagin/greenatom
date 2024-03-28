@@ -1,6 +1,6 @@
 import argparse
-import asyncio
-from asyncio import sleep
+
+from asyncio import sleep, run
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--start', type=int, default=0, help='Start number')
@@ -15,4 +15,4 @@ async def robot(start: int = 0):
         await sleep(1)
 
 
-asyncio.run(robot(args.start))
+run(robot(args.start))
