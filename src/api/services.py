@@ -56,6 +56,7 @@ async def stop_robot_from_api(db: AsyncSession):
             status_code=400,
             detail="Robot already stop",
         )
+
     stmt = select(Launch).order_by(-Launch.id)
     last_launch = await db.execute(stmt)
     last_launch = last_launch.scalars().first()
@@ -64,5 +65,20 @@ async def stop_robot_from_api(db: AsyncSession):
     last_launch.work_time = int(work_time)
     db.add(last_launch)
     await db.commit()
+
     stop_bot()
     return last_launch
+
+
+async def get_all_launches(db: AsyncSession):
+    stmt = select(Launch)
+    launches = await db.execute(stmt)
+    launches = launches.scalars().all()
+    return launches
+
+
+async def get_launch_by_pk(pk: int, db: AsyncSession):
+    stmt = select(Launch).where(Launch.id == pk)
+    launches = await db.execute(stmt)
+    launches = launches.scalars().first()
+    return launches
