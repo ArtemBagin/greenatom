@@ -6,7 +6,7 @@ authors = ["ArtemBagin <artem.bagin@vk.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 fastapi = "^0.110.0"
 aiosqlite = "^0.20.0"
 sqlalchemy = "^2.0.29"
