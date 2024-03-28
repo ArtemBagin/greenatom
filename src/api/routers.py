@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from src.api.schemas import StartScheme
+from src.api.schemas import LaunchCreate
 
 router = APIRouter(
     prefix='/robot',
@@ -10,12 +10,12 @@ router = APIRouter(
 
 
 @router.post('')
-def start_robot(data: StartScheme):
+def start_robot(data: LaunchCreate):
     # todo: вызов функции из services
     ...
 
 
 @router.delete('')
-def start_robot(data: StartScheme):
+def start_robot(data: LaunchCreate):
     # todo: вызов функции из services
     ...
